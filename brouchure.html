@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J&MAgent Pitch Deck - Futurista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F2F1EF;
+            --bg-secondary: #FFFFFF;
+            --accent-dark: #1A2229;
+            --accent-glow: rgba(26, 34, 41, 0.05);
+            --text-main: #1A2229;
+            --text-muted: #4A5568;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            overflow: hidden;
+            /* Fondo de rejilla técnica sutil */
+            background-image: 
+                linear-gradient(rgba(26, 34, 41, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 34, 41, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 6rem;
+            box-sizing: border-box;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 34, 41, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.02);
+        }
+
+        .tech-border {
+            position: relative;
+            border-left: 2px solid var(--accent-dark);
+            padding-left: 1.5rem;
+        }
+
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 2px;
+            height: 20px;
+            background: white;
+            animation: scan 2s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .btn-nav {
+            background-color: var(--accent-dark);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(26, 34, 41, 0.2);
+        }
+
+        .progress-indicator {
+            position: fixed;
+            top: 2rem;
+            right: 4rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-indicator" id="counter">01 / 12</div>
+
+    <!-- Slide 1: Cover -->
+    <div class="slide active" id="slide-0">
+        <div class="max-w-5xl">
+            <div class="inline-block px-4 py-1 border border-black/10 rounded-full mb-6 text-xs font-bold tracking-widest uppercase opacity-60">
+                Future of Communication
+            </div>
+            <h1 class="text-8xl font-extrabold mb-8 tracking-tighter leading-none">J&M<span class="text-zinc-400">Agent</span></h1>
+            <p class="text-3xl font-light text-muted max-w-2xl leading-snug">
+                Arquitectura RAG de última generación. <br> Inteligencia pura para tu WhatsApp Business.
+            </p>
+            <div class="mt-12 h-0.5 w-32 bg-zinc-900"></div>
+        </div>
+    </div>
+
+    <!-- Slide 2: El Problema -->
+    <div class="slide" id="slide-1">
+        <h2 class="text-5xl font-extrabold mb-16 tracking-tight">Fugas en el embudo</h2>
+        <div class="grid grid-cols-2 gap-16">
+            <div class="space-y-12">
+                <div class="tech-border">
+                    <h3 class="text-2xl font-bold mb-2">Latencia Crítica</h3>
+                    <p class="text-muted text-lg">Clientes que abandonan por falta de respuesta inmediata.</p>
+                </div>
+                <div class="tech-border">
+                    <h3 class="text-2xl font-bold mb-2">Infocracia Caótica</h3>
+                    <p class="text-muted text-lg">Información de la empresa dispersa y no accesible para el bot.</p>
+                </div>
+                <div class="tech-border">
+                    <h3 class="text-2xl font-bold mb-2">Soporte Reactivo</h3>
+                    <p class="text-muted text-lg">Tu equipo humano colapsado por preguntas repetitivas.</p>
+                </div>
+            </div>
+            <div class="glass-card p-12 flex flex-col justify-center border-dashed border-2">
+                <p class="text-4xl font-bold leading-tight mb-4 text-zinc-800">"El costo de no responder es la pérdida de confianza."</p>
+                <div class="w-12 h-1 bg-zinc-200"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: La Solución -->
+    <div class="slide" id="slide-2">
+        <h2 class="text-5xl font-extrabold mb-16">Ecosistema Cognitivo</h2>
+        <div class="grid grid-cols-3 gap-8">
+            <div class="glass-card p-8 hover:bg-white transition-colors cursor-default group">
+                <div class="w-12 h-12 bg-zinc-900 rounded-lg mb-6 flex items-center justify-center text-white font-bold group-hover:scale-110 transition-transform">∞</div>
+                <h3 class="font-extrabold text-xl mb-3">Disponibilidad Total</h3>
+                <p class="text-muted leading-relaxed text-sm">Escalabilidad infinita 24/7 sin pérdida de calidad conversacional.</p>
+            </div>
+            <div class="glass-card p-8 hover:bg-white transition-colors cursor-default group">
+                <div class="w-12 h-12 bg-zinc-900 rounded-lg mb-6 flex items-center justify-center text-white font-bold group-hover:scale-110 transition-transform">🧠</div>
+                <h3 class="font-extrabold text-xl mb-3">Memoria Contextual</h3>
+                <p class="text-muted leading-relaxed text-sm">Tecnología RAG que consulta tus documentos en milisegundos.</p>
+            </div>
+            <div class="glass-card p-8 hover:bg-white transition-colors cursor-default group">
+                <div class="w-12 h-12 bg-zinc-900 rounded-lg mb-6 flex items-center justify-center text-white font-bold group-hover:scale-110 transition-transform">⚡</div>
+                <h3 class="font-extrabold text-xl mb-3">Modelos SOTA</h3>
+                <p class="text-muted leading-relaxed text-sm">Integración nativa con GPT-4o y Gemini 1.5 Pro.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: ¿Qué es? -->
+    <div class="slide" id="slide-3">
+        <div class="grid grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-5xl font-extrabold mb-8">ADN de Negocio</h2>
+                <p class="text-xl leading-relaxed text-muted mb-8">
+                    J&MAgent no es un software estático; es un **agente dinámico**. A diferencia de otros bots, este *aprende* de tus manuales, PDFs y bases de datos para ofrecer una experiencia que se siente humana y experta.
+                </p>
+                <div class="flex gap-4">
+                    <div class="px-4 py-2 border border-black/10 rounded-lg text-xs font-bold uppercase">No Alucina</div>
+                    <div class="px-4 py-2 border border-black/10 rounded-lg text-xs font-bold uppercase">Entrenable</div>
+                </div>
+            </div>
+            <div class="bg-zinc-900 p-16 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                <p class="text-7xl font-extrabold mb-2 tracking-tighter">99.9%</p>
+                <p class="text-xl opacity-60 font-light">Precisión en base de conocimiento.</p>
+                <p class="mt-8 text-sm uppercase tracking-widest font-bold text-zinc-400 italic">Trusted by Industry Experts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Proceso -->
+    <div class="slide" id="slide-4">
+        <h2 class="text-4xl font-extrabold mb-16 text-center">Pipeline de Procesamiento</h2>
+        <div class="flex justify-between items-center max-w-6xl mx-auto relative">
+            <div class="absolute top-1/2 left-0 w-full h-[1px] bg-zinc-200 -z-10"></div>
+            
+            <div class="bg-white border border-zinc-200 p-8 rounded-2xl w-64 shadow-sm text-center">
+                <div class="text-xs font-bold opacity-40 mb-2">INPUT</div>
+                <p class="font-extrabold">Prompt Usuario</p>
+            </div>
+
+            <div class="bg-zinc-900 text-white p-8 rounded-2xl w-64 shadow-xl text-center scale-110">
+                <div class="text-xs font-bold opacity-40 mb-2">VECTOR SEARCH</div>
+                <p class="font-extrabold">Retrieval RAG</p>
+            </div>
+
+            <div class="bg-white border border-zinc-200 p-8 rounded-2xl w-64 shadow-sm text-center">
+                <div class="text-xs font-bold opacity-40 mb-2">OUTPUT</div>
+                <p class="font-extrabold">Respuesta Precisa</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Features -->
+    <div class="slide" id="slide-5">
+        <h2 class="text-5xl font-extrabold mb-12">Capacidades Core</h2>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="glass-card p-6 flex items-center gap-6">
+                <div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center font-bold">01</div>
+                <span class="text-xl font-bold">Gestión de Citas con IA</span>
+            </div>
+            <div class="glass-card p-6 flex items-center gap-6">
+                <div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center font-bold">02</div>
+                <span class="text-xl font-bold">Traducción en Tiempo Real</span>
+            </div>
+            <div class="glass-card p-6 flex items-center gap-6">
+                <div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center font-bold">03</div>
+                <span class="text-xl font-bold">Analítica Predictiva</span>
+            </div>
+            <div class="glass-card p-6 flex items-center gap-6">
+                <div class="w-10 h-10 bg-zinc-100 rounded flex items-center justify-center font-bold">04</div>
+                <span class="text-xl font-bold">Integración API & Webhooks</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Sectores -->
+    <div class="slide" id="slide-6">
+        <h2 class="text-5xl font-extrabold mb-12 text-center">Adaptabilidad Vertical</h2>
+        <div class="grid grid-cols-4 gap-4">
+            <div class="p-10 bg-white border border-zinc-100 rounded-3xl text-center group hover:bg-zinc-900 hover:text-white transition-all duration-500">
+                <div class="text-4xl mb-4">🛒</div>
+                <h3 class="font-bold">E-Commerce</h3>
+            </div>
+            <div class="p-10 bg-white border border-zinc-100 rounded-3xl text-center group hover:bg-zinc-900 hover:text-white transition-all duration-500">
+                <div class="text-4xl mb-4">🏢</div>
+                <h3 class="font-bold">Real Estate</h3>
+            </div>
+            <div class="p-10 bg-white border border-zinc-100 rounded-3xl text-center group hover:bg-zinc-900 hover:text-white transition-all duration-500">
+                <div class="text-4xl mb-4">🩺</div>
+                <h3 class="font-bold">HealthTech</h3>
+            </div>
+            <div class="p-10 bg-white border border-zinc-100 rounded-3xl text-center group hover:bg-zinc-900 hover:text-white transition-all duration-500">
+                <div class="text-4xl mb-4">🎓</div>
+                <h3 class="font-bold">EdTech</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Ventajas -->
+    <div class="slide" id="slide-7">
+        <h2 class="text-5xl font-extrabold mb-16">Diferenciador J&M</h2>
+        <div class="grid grid-cols-2 gap-16">
+            <div class="space-y-12">
+                <div class="flex gap-6">
+                    <div class="text-zinc-300 font-bold text-4xl">/</div>
+                    <div>
+                        <h4 class="font-extrabold text-xl">Despliegue Instantáneo</h4>
+                        <p class="text-muted">De documentos a producción en horas.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="text-zinc-300 font-bold text-4xl">/</div>
+                    <div>
+                        <h4 class="font-extrabold text-xl">Soberanía de Datos</h4>
+                        <p class="text-muted">Tus archivos, tu conocimiento, tu ventaja.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-12">
+                <div class="flex gap-6">
+                    <div class="text-zinc-300 font-bold text-4xl">/</div>
+                    <div>
+                        <h4 class="font-extrabold text-xl">Costo Eficiente</h4>
+                        <p class="text-muted">Escala tus ventas sin escalar tu nómina.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6">
+                    <div class="text-zinc-300 font-bold text-4xl">/</div>
+                    <div>
+                        <h4 class="font-extrabold text-xl">IA Multimodelo</h4>
+                        <p class="text-muted">Selección dinámica del mejor modelo para el caso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Tech Stack -->
+    <div class="slide" id="slide-8">
+        <h2 class="text-5xl font-extrabold mb-12">Arquitectura del Futuro</h2>
+        <div class="flex flex-wrap gap-4 mb-16">
+            <div class="px-8 py-4 glass-card font-bold border-l-4 border-l-zinc-900">OPENAI GPT-4o</div>
+            <div class="px-8 py-4 glass-card font-bold border-l-4 border-l-zinc-900">GEMINI PRO 1.5</div>
+            <div class="px-8 py-4 glass-card font-bold border-l-4 border-l-zinc-900">VECTOR DB (PINECO)</div>
+            <div class="px-8 py-4 glass-card font-bold border-l-4 border-l-zinc-900">WHATSAPP CLOUD API</div>
+        </div>
+        <p class="text-zinc-400 font-bold tracking-widest text-sm uppercase">Pioneros en implementación RAG local</p>
+    </div>
+
+    <!-- Slide 10: ROI -->
+    <div class="slide" id="slide-9">
+        <h2 class="text-5xl font-extrabold mb-16 text-center">Impacto Directo</h2>
+        <div class="grid grid-cols-3 gap-12">
+            <div class="p-12 border-r border-zinc-200 text-center">
+                <p class="text-7xl font-extrabold mb-4">-60%</p>
+                <p class="text-muted uppercase tracking-widest text-xs font-bold">Carga Operativa</p>
+            </div>
+            <div class="p-12 border-r border-zinc-200 text-center">
+                <p class="text-7xl font-extrabold mb-4">3x</p>
+                <p class="text-muted uppercase tracking-widest text-xs font-bold">Conversión Leads</p>
+            </div>
+            <div class="p-12 text-center">
+                <p class="text-7xl font-extrabold mb-4">0ms</p>
+                <p class="text-muted uppercase tracking-widest text-xs font-bold">Tiempo de Respuesta</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Business Model -->
+    <div class="slide" id="slide-10">
+        <h2 class="text-5xl font-extrabold mb-12">Inversión Inteligente</h2>
+        <div class="flex gap-8 max-w-5xl">
+            <div class="flex-1 glass-card p-12 border-t-4 border-t-zinc-200">
+                <h3 class="text-xs font-extrabold opacity-40 uppercase mb-4 tracking-widest">Setup</h3>
+                <p class="text-3xl font-extrabold mb-4">Instalación Única</p>
+                <p class="text-muted">Ajustada a la complejidad y volumen de tu base documental.</p>
+            </div>
+            <div class="flex-1 glass-card p-12 border-t-4 border-t-zinc-900 bg-white">
+                <h3 class="text-xs font-extrabold opacity-40 uppercase mb-4 tracking-widest">Suscripción</h3>
+                <p class="text-3xl font-extrabold mb-2">200.000 COP <span class="text-sm font-normal opacity-50">/mes</span></p>
+                <p class="text-muted italic">Mantenimiento de IA, actualizaciones de modelo y soporte continuo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: CTA -->
+    <div class="slide" id="slide-11">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-1 bg-zinc-900 text-white rounded-full text-xs font-bold mb-8 uppercase tracking-widest">
+                J&M Industry
+            </div>
+            <h2 class="text-7xl font-extrabold mb-8 tracking-tighter">Trasciende los límites del chat.</h2>
+            <p class="text-2xl text-muted mb-12 font-light">Agenda una auditoría gratuita de tu canal de WhatsApp.</p>
+            <button class="btn-nav text-xl px-16 py-6 rounded-2xl">
+                AGENDAR DEMO AHORA
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="fixed bottom-12 left-12 flex gap-4">
+        <button class="btn-nav opacity-50 hover:opacity-100" onclick="changeSlide(-1)">←</button>
+        <button class="btn-nav" onclick="changeSlide(1)">→</button>
+    </div>
+
+    <div class="fixed bottom-0 left-0 h-1 bg-zinc-900 transition-all duration-300" id="progress"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            const width = ((currentSlide + 1) / slides.length) * 100;
+            progress.style.width = width + '%';
+            
+            const num = (currentSlide + 1).toString().padStart(2, '0');
+            counter.innerText = `${num} / 12`;
+        }
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+            
+            slides[currentSlide].classList.add('active');
+            updateUI();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        updateUI();
+    </script>
+</body>
+</html>
