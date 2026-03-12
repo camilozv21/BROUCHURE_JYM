@@ -34,13 +34,14 @@
             width: 100vw;
             padding: 1.5rem;
             padding-top: 4rem;
+            padding-bottom: 5rem; /* espacio para botones de nav fijos en mobile */
             box-sizing: border-box;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             overflow-y: auto;
         }
 
         @media (min-width: 640px) {
-            .slide { padding: 3rem; }
+            .slide { padding: 3rem; padding-bottom: 6rem; }
         }
 
         @media (min-width: 1024px) {
