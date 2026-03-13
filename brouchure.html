@@ -275,41 +275,83 @@
 
     <!-- Slide 5: Proceso -->
     <div class="slide" id="slide-4">
-        <h2 class="text-3xl sm:text-4xl font-extrabold mb-10 sm:mb-16 text-center">Pipeline de Procesamiento</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-2 sm:mb-4">Cómo funciona</h2>
+        <p class="text-muted text-sm sm:text-base mb-8 sm:mb-12">De tu documento a la respuesta correcta, en milisegundos.</p>
 
-        <!-- Mobile: vertical stack -->
-        <div class="flex flex-col md:hidden gap-0 items-center max-w-xs mx-auto">
-            <div class="bg-white border border-zinc-200 p-6 rounded-2xl w-full shadow-sm text-center">
-                <div class="text-xs font-bold opacity-40 mb-2">INPUT</div>
-                <p class="font-extrabold">Prompt Usuario</p>
+        <!-- Mobile: vertical -->
+        <div class="flex flex-col md:hidden gap-3 max-w-sm mx-auto w-full">
+            <div class="flex items-start gap-4 bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm">
+                <div class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center font-extrabold text-sm shrink-0">1</div>
+                <div>
+                    <p class="font-extrabold text-base">Subida de documentos</p>
+                    <p class="text-zinc-500 text-xs mt-1">Cargas tus archivos (PDF, XLSX, TXT, CSV) al panel.</p>
+                </div>
             </div>
-            <div class="pipeline-line-v w-0.5 h-8 bg-zinc-300 mx-auto"></div>
-            <div class="bg-zinc-900 text-white p-6 rounded-2xl w-full shadow-xl text-center">
-                <div class="text-xs font-bold opacity-40 mb-2">VECTOR SEARCH</div>
-                <p class="font-extrabold">Retrieval RAG</p>
+            <div class="text-center text-zinc-300 text-xl font-bold">↓</div>
+            <div class="flex items-start gap-4 bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm">
+                <div class="w-8 h-8 rounded-full bg-zinc-700 text-white flex items-center justify-center font-extrabold text-sm shrink-0">2</div>
+                <div>
+                    <p class="font-extrabold text-base">Procesamiento</p>
+                    <p class="text-zinc-500 text-xs mt-1">El sistema extrae y divide el contenido en fragmentos.</p>
+                </div>
             </div>
-            <div class="pipeline-line-v w-0.5 h-8 bg-zinc-300 mx-auto"></div>
-            <div class="bg-white border border-zinc-200 p-6 rounded-2xl w-full shadow-sm text-center">
-                <div class="text-xs font-bold opacity-40 mb-2">OUTPUT</div>
-                <p class="font-extrabold">Respuesta Precisa</p>
+            <div class="text-center text-zinc-300 text-xl font-bold">↓</div>
+            <div class="flex items-start gap-4 bg-zinc-900 text-white rounded-2xl p-4 shadow-xl">
+                <div class="w-8 h-8 rounded-full bg-white text-zinc-900 flex items-center justify-center font-extrabold text-sm shrink-0">3</div>
+                <div>
+                    <p class="font-extrabold text-base">Vectorización</p>
+                    <p class="text-zinc-400 text-xs mt-1">Cada fragmento se convierte en un vector semántico.</p>
+                </div>
+            </div>
+            <div class="text-center text-zinc-300 text-xl font-bold">↓</div>
+            <div class="flex items-start gap-4 bg-white border border-zinc-100 rounded-2xl p-4 shadow-sm">
+                <div class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center font-extrabold text-sm shrink-0">4</div>
+                <div>
+                    <p class="font-extrabold text-base">Respuesta inteligente</p>
+                    <p class="text-zinc-500 text-xs mt-1">El bot encuentra y entrega la respuesta exacta al usuario.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Desktop: horizontal -->
-        <div class="hidden md:flex justify-between items-center max-w-6xl mx-auto relative">
-            <div class="pipeline-line-h absolute top-1/2 left-0 w-full h-[1px] bg-zinc-200 -z-10"></div>
-            <div class="bg-white border border-zinc-200 p-8 rounded-2xl w-64 shadow-sm text-center">
-                <div class="text-xs font-bold opacity-40 mb-2">INPUT</div>
-                <p class="font-extrabold">Prompt Usuario</p>
+        <!-- Desktop: horizontal flow -->
+        <div class="hidden md:flex items-stretch gap-0 max-w-5xl mx-auto w-full">
+
+            <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-6 shadow-sm flex flex-col">
+                <div class="w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center font-extrabold text-sm mb-4">1</div>
+                <p class="font-extrabold text-lg mb-2">Subida</p>
+                <p class="text-zinc-500 text-sm leading-relaxed">Carga tus archivos PDF, XLSX, TXT o CSV al panel de administración.</p>
             </div>
-            <div class="bg-zinc-900 text-white p-8 rounded-2xl w-64 shadow-xl text-center scale-110">
-                <div class="text-xs font-bold opacity-40 mb-2">VECTOR SEARCH</div>
-                <p class="font-extrabold">Retrieval RAG</p>
+
+            <div class="flex items-center px-2 shrink-0">
+                <span class="text-zinc-300 text-2xl font-bold">→</span>
             </div>
-            <div class="bg-white border border-zinc-200 p-8 rounded-2xl w-64 shadow-sm text-center">
-                <div class="text-xs font-bold opacity-40 mb-2">OUTPUT</div>
-                <p class="font-extrabold">Respuesta Precisa</p>
+
+            <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-6 shadow-sm flex flex-col">
+                <div class="w-9 h-9 rounded-full bg-zinc-700 text-white flex items-center justify-center font-extrabold text-sm mb-4">2</div>
+                <p class="font-extrabold text-lg mb-2">Procesamiento</p>
+                <p class="text-zinc-500 text-sm leading-relaxed">El sistema extrae, limpia y divide el texto en fragmentos manejables.</p>
             </div>
+
+            <div class="flex items-center px-2 shrink-0">
+                <span class="text-zinc-300 text-2xl font-bold">→</span>
+            </div>
+
+            <div class="flex-1 bg-zinc-900 text-white rounded-2xl p-6 shadow-xl flex flex-col">
+                <div class="w-9 h-9 rounded-full bg-white text-zinc-900 flex items-center justify-center font-extrabold text-sm mb-4">3</div>
+                <p class="font-extrabold text-lg mb-2">Vectorización</p>
+                <p class="text-zinc-400 text-sm leading-relaxed">Cada fragmento se convierte en un vector semántico que entiende el significado.</p>
+            </div>
+
+            <div class="flex items-center px-2 shrink-0">
+                <span class="text-zinc-600 text-2xl font-bold">→</span>
+            </div>
+
+            <div class="flex-1 bg-white border border-zinc-200 rounded-2xl p-6 shadow-sm flex flex-col">
+                <div class="w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center font-extrabold text-sm mb-4">4</div>
+                <p class="font-extrabold text-lg mb-2">Respuesta</p>
+                <p class="text-zinc-500 text-sm leading-relaxed">El bot recupera el fragmento exacto y responde al usuario con precisión.</p>
+            </div>
+
         </div>
     </div>
 
